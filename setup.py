@@ -11,7 +11,7 @@ setup(
     description='toscawidgets2 wrapper for the stanford protovis toolkit',
     long_description=long_description,
     author='Ralph Bean',
-    author_email='ralph.bean@gmail.com',
+    author_email='rbean@redhat.com',
     url='http://github.com/toscawidgets/tw2.protovis.conventional',
     install_requires=[
         "tw2.core",
