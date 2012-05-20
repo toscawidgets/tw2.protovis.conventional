@@ -17,9 +17,7 @@ def max_stacked_value(data):
     print value
     return value
 
-class js(twc.JSSymbol):
-    def __init__(self, src):
-        super(js, self).__init__(src=src)
+js = twc.js_symbol
 
 class AreaChart(twp.PVWidget):
     p_color = twc.Param('Color of the area', default='rgb(121,173,210)')
