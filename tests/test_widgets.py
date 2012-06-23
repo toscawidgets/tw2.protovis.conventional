@@ -5,7 +5,6 @@ from nose.tools import raises
 from cStringIO import StringIO
 from tw2.core import EmptyField, IntValidator, ValidationError
 from cgi import FieldStorage
-import formencode
 
 import webob
 if hasattr(webob, 'NestedMultiDict'):
