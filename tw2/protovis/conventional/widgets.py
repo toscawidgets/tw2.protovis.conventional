@@ -5,7 +5,7 @@ TODO
 import tw2.core as twc
 import tw2.protovis.core as twp
 from tw2.protovis.core import pv
-import simplejson
+import json
 
 def max_stacked_value(data):
     if len(data) == 0:
@@ -240,7 +240,7 @@ class LineChart(twp.PVWidget):
         maxx = max([max([l['x'] for l in d]) for d in self.p_data])
         miny = min([min([l['y'] for l in d]) for d in self.p_data])
         maxy = max([max([l['y'] for l in d]) for d in self.p_data])
-        
+
         # Sizing and scales.
         self.init_js = js(
             """
@@ -265,7 +265,7 @@ class LineChart(twp.PVWidget):
                 y = pv.Scale.linear(%f-0.25, %f+0.25).range(0, h),
                 labels = %s;
 
-            """ % (simplejson.dumps(list(self.p_data)),
+            """ % (json.dumps(list(self.p_data)),
                    self.p_time_series, self.p_time_series_format,
                    self.p_width, self.p_height,
                    miny, maxy, self.p_labels ))
@@ -363,7 +363,7 @@ class StackedAreaChart(twp.PVWidget):
                 x = pv.Scale.linear(data[0], function(d) { return d.x }).range(0, w),
                 y = pv.Scale.linear(0, %f).range(0, h),
                 labels = %s;
-            """ % (simplejson.dumps(list(self.p_data)),
+            """ % (json.dumps(list(self.p_data)),
                    self.p_time_series, self.p_time_series_format,
                    self.p_width, self.p_height,
                    max_stacked_value(list(self.p_data)),
